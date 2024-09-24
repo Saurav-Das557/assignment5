@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Donate Bangladesh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .accordion-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-gray-400 to-gray-500 shadow-sm py-4 fixed top-0 w-full z-10 mb-12">
+        <nav class="container mx-auto flex justify-between items-center px-4 ">
+            <button class="bg-lime-400 text-black font-bold px-4 py-2 rounded" onclick="window.location.href='index.html'">Home</button>
+            <h1 class="text-xl font-bold flex items-center justify-center w-full space-x-2">
+                <img src="assets/logo.png" alt="Donate Bangladesh Logo" class="w-8 h-8 sm:w-4 sm:h-8" />
+                <span class="text-center text-base sm:text-sm md:text-lg">Donate Bangladesh</span>
+            </h1>
+            <div class="text-yellow-500 font-bold flex items-center space-x-2">
+                <img src="assets/coin.png" alt="Coin" class="w-6 h-6" />
+                <span id="current-funds">5500 BDT</span>
+            </div>
+        </nav>
+        <div class="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4">
+            <button class="bg-lime-400 text-black font-bold px-6 py-2 rounded mb-4 md:mb-0">Donation</button>
+            <button class="bg-white border border-gray-300 font-bold text-gray-700 px-6 py-2 rounded">History</button>
+        </div>
+    </header>
+    <main class="container mx-auto mt-40 px-4 mb-36 max-[400px]:mt-64">
+        <div class="accordion mb-12">
+            <button class="accordion-title text-xl font-medium">What is the document object Model(DOM)</button>
+            <div class="accordion-content">
+                <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a document as a tree of objects, allowing programs to manipulate the document's structure, style, and content. The DOM provides a way for scripts to update the content, structure, and style of a document while it is being viewed, enabling dynamic and interactive web pages.</p>
+            </div>
+        </div>
+        <div class="accordion mb-12">
+            <button class="accordion-title text-xl font-medium">How do you select an element from the DOM</button>
+            <div class="accordion-content">
+                <p>To select an element from the DOM (Document Object Model) in JavaScript, you can use various methods depending on the type of element you're targeting (by ID, class, tag name, or more complex selectors).</p>
+            </div>
+        </div>
+        <div class="accordion mb-12">
+            <button class="accordion-title text-xl font-medium">What is event delegation in the context of the DOM, and why is it useful?</button>
+            <div class="accordion-content">
+                <p>Event delegation is a technique where you attach a single event listener to a parent element to handle events triggered by its child elements. Instead of adding event listeners to each child, you take advantage of event bubbling, where events move up the DOM hierarchy, allowing the parent to listen for events on its children.</p>
+            </div>
+        </div>
+        <div class="accordion">
+            <button class="accordion-title text-xl font-medium">How do you manipulate an element's attributes and styles using the DOM?</button>
+            <div class="accordion-content">
+                <p>You can manipulate an element's attributes using methods like getAttribute(), setAttribute(), and removeAttribute(). For styles, you can use the style property to change inline styles, or getComputedStyle() to access computed styles applied through CSS.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordions = document.querySelectorAll('.accordion');
+
+            accordions.forEach(accordion => {
+                const title = accordion.querySelector('.accordion-title');
+                const content = accordion.querySelector('.accordion-content');
+
+                title.addEventListener('click', () => {
+                    // Close all other accordions
+                    accordions.forEach(otherAccordion => {
+                        if (otherAccordion !== accordion) {
+                            otherAccordion.querySelector('.accordion-content').style.display = 'none';
+                        }
+                    });
+
+                    // Toggle the clicked accordion
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
