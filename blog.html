@@ -64,14 +64,14 @@
                 const content = accordion.querySelector('.accordion-content');
 
                 title.addEventListener('click', () => {
-                    // Close all other accordions
+                    
                     accordions.forEach(otherAccordion => {
                         if (otherAccordion !== accordion) {
                             otherAccordion.querySelector('.accordion-content').style.display = 'none';
                         }
                     });
 
-                    // Toggle the clicked accordion
+                    
                     if (content.style.display === 'block') {
                         content.style.display = 'none';
                     } else {
